@@ -23,11 +23,6 @@
        (<= guess2 (guess-upper-bound guess1 1/1000))))
 
 (define (sqrt-iter guess x previous-guess)
-  (if (= previous-guess 0.0)
-      (sqrt-iter (improve guess x)
-		 x
-		 guess))
-  
   (if (good-enough? previous-guess guess)
       guess
       (sqrt-iter (improve guess x)
