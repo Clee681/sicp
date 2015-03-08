@@ -3,9 +3,6 @@
 (define (square x)
   (* x x))
 
-;(define (good-enough? guess x)
-;  (< (abs (- (square guess) x)) .001))
-
 (define (average x y)
   (/ (+ x y) 2))
 
@@ -26,7 +23,7 @@
        (<= guess2 (guess-upper-bound guess1 1/1000))))
 
 (define (sqrt-iter guess x previous-guess)
-  (if (= previous-guess 0)
+  (if (= previous-guess 0.0)
       (sqrt-iter (improve guess x)
 		 x
 		 guess))
