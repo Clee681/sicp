@@ -29,5 +29,17 @@
                  x
 		 guess)))
 
-(define (sqrt x)
-  (sqrt-iter 1.0 x 0.0))
+(define (sqrt radicand)
+  (sqrt-iter 1.0 radicand 0.0))
+
+;;; .001 is significantly large when computing the square root of small numbers
+;;; ex: sqrt .0001 is .01
+;;; however, if the condition for good-enough is .001, we get an answer close to .03
+;;; this is because .03 * .03 is .0009 which passes our condition of good-enough since
+;;; our tolerance is fixed at .001
+
+;;; In the case of large numbers with limited precision, the good-enough condition
+;;; will never return #f causing infinite evaluation. For example, let's assume we have
+;;; a large integer with a limited precision up to the hundreths place. Unless the subtraction
+;;; results in a value of exactly zero, subtraction will never return a smaller number compared
+;;; to the thousandths place.
